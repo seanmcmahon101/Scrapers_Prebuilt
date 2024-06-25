@@ -1,5 +1,36 @@
 def itemlistscraper():
+    """
+    Scrapes an item list from a specified URL, downloads the report as an Excel file, 
+    and returns the data as a pandas DataFrame.
+
+    The function navigates to a specific URL, interacts with various elements on the 
+    webpage to generate a report, downloads the report in Excel format, and reads the 
+    downloaded file into a pandas DataFrame. If no new file is downloaded within a 
+    specified timeout period, it returns None.
+
+    Returns:
+        pandas.DataFrame: A DataFrame containing the data from the downloaded Excel file.
+        None: If no file is downloaded or an error occurs during the process.
+
+    Raises:
+        Exception: Catches and logs any exceptions that occur during the scraping process.
+    """
+
     def get_latest_file_with_item_name(directory, timeout=60):
+        """
+        Waits for the latest Excel file with 'Item' in its name to appear in the specified directory.
+
+        This function continuously checks the specified directory for an Excel file with 
+        'Item' in its name until the timeout period elapses.
+
+        Parameters:
+            directory (str): The path to the directory where the file is expected to be downloaded.
+            timeout (int, optional): The maximum time to wait for the file to appear, in seconds. Default is 60 seconds.
+
+        Returns:
+            str: The full path to the latest file with 'Item' in its name if found within the timeout period.
+            None: If no such file is found within the timeout period.
+        """
         start_time = time.time()
         while (time.time() - start_time) < timeout:
             for file_name in os.listdir(directory):
