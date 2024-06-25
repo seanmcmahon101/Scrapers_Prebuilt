@@ -31,5 +31,5 @@ To use this code, you need to have Python installed along with the following lib
 You can install the required libraries using pip:
 
 ```sh
-pip install pandas selenium
+pip install pandas selenium tkinter plyer requests_ntlm
 ```
