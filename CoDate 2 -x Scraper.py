@@ -1,4 +1,20 @@
 def codedatescraper():
+    """
+    Scrapes the CoDate report from a specified URL, downloads the report as an Excel file,
+    and returns the data as a pandas DataFrame.
+
+    The function navigates to a specific URL, interacts with various elements on the 
+    webpage to generate a report, downloads the report in Excel format, and reads the 
+    downloaded file into a pandas DataFrame. If no new file is downloaded within a 
+    specified timeout period, it returns None.
+
+    Returns:
+        pandas.DataFrame: A DataFrame containing the data from the downloaded Excel file.
+        None: If no file is downloaded or an error occurs during the process.
+
+    Raises:
+        Exception: Catches and logs any exceptions that occur during the scraping process.
+    """
     try:
         codate_url = "http://hffsuk02/Reports/report/ReportsUK/Customer/CoDate2-X"
         logger.debug(f"Starting codedatescraper with URL: {codate_url}")
